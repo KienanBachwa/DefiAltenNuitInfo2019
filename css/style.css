@@ -1,0 +1,4 @@
+#main { display: flex; align-items: top;}
+#main > div { flex: 50%;  margin: 10px;}
+#canvas {display: block; width:50vw; height:50vw; border : solid 1px black; } 
+#scene { border: 1px solid black;padding:0;}

@@ -1,0 +1,46 @@
+<html>
+    <head>
+         <script src="http://defi.alten.nuitdelinfo.ovh/js/three.min.js"></script>
+         <script type="module" src="http://defi.alten.nuitdelinfo.ovh/js/defi.alten.js"></script>                    
+        <meta charset="UTF-8" />
+		<div class="demo">
+            <h2>Ajouter du son</h2>
+            <p><button id="btn-defi-3">play/pause</button></p>
+            <div id="defi-alten"></div>  
+		</div>
+        <script>
+        window.addEventListener('DOMContentLoaded', (event) => {
+ 
+            let settings={
+                autoPlay        : false,
+                container       : document.getElementById("defi-alten"),
+                backgroundImage : 'http://defi.alten.nuitdelinfo.ovh/img/background2019.png',
+                sequences       : [
+                {
+                    mesh : 'http://defi.alten.nuitdelinfo.ovh/meshes/Oni_Chan_anim_fin.glb',
+                    position : {x:15,y:0,z:0},
+                    sequence :
+                    [
+                        {action:2, duration:2, startSound:'http://defi.alten.nuitdelinfo.ovh/sounds/banzai.mp3'              ,stopSound:'http://defi.alten.nuitdelinfo.ovh/sounds/MrKEY_Dance-2006_LMK.mp3'},
+                        {action:6, duration:5, startSound:'http://defi.alten.nuitdelinfo.ovh/sounds/MrKEY_Dance-2006_LMK.mp3' },
+                        {action:3, duration:3, startSound:'http://defi.alten.nuitdelinfo.ovh/sounds/souris.mp3'               },
+                        {action:4, duration:3  },
+                        {action:5, duration:3  },
+                        {action:7, duration:3  },
+                    ]
+                }
+            ]
+            };
+ 
+           defi3  = new DefiAlten(settings);
+           defi3.resize(400, 255);
+           document.getElementById('btn-defi-3').onclick = ()=>{defi3.toggle();};
+ 
+        });
+        </script>
+    </head>
+    <body>
+         <div id="defi-alten"><div>
+    </body>
+            
+</html>

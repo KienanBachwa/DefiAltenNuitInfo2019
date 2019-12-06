@@ -1,0 +1,42 @@
+<html>
+    <head>
+         <script src="http://defi.alten.nuitdelinfo.ovh/js/three.min.js"></script>
+         <script type="module" src="http://defi.alten.nuitdelinfo.ovh/js/defi.alten.js"></script>                    
+        <meta charset="UTF-8" />  
+        <script>
+            window.addEventListener('DOMContentLoaded', (event) => {
+ 
+                let settings={
+                    autoPlay        : true,                                 //Définition d'un objet settings 
+                    container       : document.getElementById("defi-alten"),//Div qui accueillera l'animation
+                    sequences       : [
+                    {
+                        mesh : 'http://defi.alten.nuitdelinfo.ovh/meshes/Oni_Chan_anim_fin.glb',                     //Ajout d'un objet
+                        position : {x:15,y:0,z:0},                          //Position de l'objet
+                        sequence :                                          
+                        [
+                            {action:0, duration:6 },   	// Courir pendant 6 secondes               
+                            {action:1, duration:3  },	// Eventails pendant 3 secondes
+							{action:2, duration:3  },	// Respirer
+							{action:3, duration:3  },   // Sauter
+                            {action:4, duration:3  },	// Eventail droit
+							{action:5, duration:3  },	// Eventail gauche
+							{action:6, duration:3  },	// Balance le haut du corps
+							{action:7, duration:1  },   // Tomber au sol
+                        ]
+                    }
+                    ]
+                };
+ 
+                defi  = new DefiAlten(settings);
+ 
+				defi.resize(400, 255);
+ 
+            });
+        </script>
+    </head>
+    <body>
+         <div id="defi-alten"><div>
+    </body>
+            
+</html>

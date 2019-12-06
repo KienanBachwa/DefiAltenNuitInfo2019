@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <link rel="stylesheet" type="text/css" href="css/defi.alten.css">
+    <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+
+    <script src="http://defi.alten.nuitdelinfo.ovh/js/three.min.js"></script>
+    <script type="module" src="js/defi.alten.js"></script>
+
+    <script id="script4">
+        window.addEventListener('DOMContentLoaded', (event) => {
+            let nyans = [];
+
+            // Définissons dans un premier temps deux fonctions
+            // evtActionBegin et evtActionEnd que l'on souhaite
+            // exécuter  en début et fin d'une action.
+            // /!\ Attention ! Ne rien mettre de bloquant dans les actions (boucle infinie ou autre..)
+
+            reset = function (defi) {
+                console.log("RESET");
+                let left = defi.scene.getObjectByName("altenauteleft");
+                let middle = defi.scene.getObjectByName("altenautemiddle");
+                let right = defi.scene.getObjectByName("altenauteright");
+
+                left.position = new THREE.Vector3(-20, 22, 0);
+                middle.position = new THREE.Vector3(0, 27, 0);
+                right.position = new THREE.Vector3(20, 22, 0);
+
+                let left2 = defi.scene.getObjectByName("chanleft");
+                let right2 = defi.scene.getObjectByName("chanright");
+
+                left2.position = new THREE.Vector3(-20, -60, 0);
+                right2.position = new THREE.Vector3(-20, -60, 0);
+
+                let earth = defi.scene.getObjectByName("earth");
+                let moon = defi.scene.getObjectByName("moon");
+
+                earth.position = {x: 0, y: 20, z: -100000};
+                moon.position = {x: 0, y: 20, z: 50000};
+
+                let nyan = defi.scene.getObjectByName("nyan");
+                nyan.position = {x: -100, y: 22, z: 0};
+                nyan.rotation = {x: 0, y: 0, z: 0};
+
+            };
+
+            evtActionBegin = function (defi) {
+                // do something //
+            };
+
+            evtActionEnd = function (defi) {
+                // Dans cette fonction, nous allons tenter de faire
+                // tourner le mesh sur lui même
+
+                // Récupération de type scene par son nom (NB : dans les settings, nous avons positionné l'attribut meshName à 'pouet')
+                //let object = defi.scene.getObjectByName('altenaute');
+
+                //object.rotateY(0.1);
+            };
+
+            firstAction = function (defi) {
+                defi.customAnimate = firstAnimate;
+            };
+
+            firstAnimate = function (defi) {
+                let left = defi.scene.getObjectByName("altenauteleft");
+                let middle = defi.scene.getObjectByName("altenautemiddle");
+                let right = defi.scene.getObjectByName("altenauteright");
+
+                left.rotateY(0.02);
+                right.rotateY(-0.02);
+
+                let earth = defi.scene.getObjectByName("earth");
+                earth.position.z -= 80;
+
+                let moon = defi.scene.getObjectByName("moon");
+                moon.position.z -= 80;
+
+                if (moon.position.z + 10000 < middle.position.z) {
+                    defi.customAnimate = secondAnimate;
+                }
+            };
+
+            secondAnimate = function (defi) {
+                let left = defi.scene.getObjectByName("altenauteleft");
+                let right = defi.scene.getObjectByName("altenauteright");
+
+                let left2 = defi.scene.getObjectByName("chanleft");
+                let right2 = defi.scene.getObjectByName("chanright");
+
+                left.position.y += 1;
+                right.position.y += 1;
+
+                left2.position.y += 1;
+                right2.position.y += 1;
+
+                if (left2.position.y >= 22) {
+                    defi.customAnimate = thirdAnimate;
+                }
+            };
+
+            thirdAnimate = function (defi) {
+                let nyan = defi.scene.getObjectByName("nyan");
+                nyan.position.x += 1;
+
+                if (nyan.position.x >= -15) {
+                    defi.customAnimate = fourthAnimate;
+                }
+            };
+
+            fourthAnimate = function (defi) {
+                let nyan = defi.scene.getObjectByName("nyan");
+                nyan.rotation.z += 0.05;
+
+                if (nyan.rotation.z >= 1.6) {
+                    let startx = -30;
+                    let starty = -10;
+                    for (let j = 0; j < 5; j++) {
+                        for (let i = 0; i < 5; i++) {
+                            let addednyan = nyan.clone();
+                            addednyan.position.y = starty;
+                            addednyan.scale = 0.001;
+                            addednyan.position.x = startx;
+                            startx += 15;
+                            defi.scene.add(addednyan);
+                            nyans.push(addednyan);
+                        }
+                        starty -= 33;
+                        startx = -30;
+
+                    }
+                    defi.customAnimate = fifthAnimate;
+                }
+            };
+
+            fifthAnimate = function (defi) {
+                let nyan = defi.scene.getObjectByName("nyan");
+
+                nyan.position.y += 0.5;
+                for (let anyan in nyans) {
+                    nyans[anyan].position.y += 0.5;
+                }
+
+                if (nyan.position.y >= 100) {
+                    defi.customAnimate = sixthAnimate;
+
+                }
+
+            };
+
+            sixthAnimate = function (defi) {
+                let nyan = defi.scene.getObjectByName("nyan");
+                nyan.position.y += 0.5;
+                for (let anyan in nyans) {
+                    nyans[anyan].position.y += 0.5;
+                }
+
+                let left2 = defi.scene.getObjectByName("chanleft");
+                let right2 = defi.scene.getObjectByName("chanright");
+                let earth = defi.scene.getObjectByName("earth");
+                let moon = defi.scene.getObjectByName("moon");
+
+                defi.scene.remove(left2);
+                defi.scene.remove(right2);
+                defi.scene.remove(earth);
+                defi.scene.remove(moon);
+
+                if (nyan.position.y >= 200) {
+                    for (let anyan in nyans) {
+                        defi.scene.remove(nyans[anyan]);
+                        defi.scene.remove(nyan);
+                    }
+                    var bulbGeometry = new THREE.SphereBufferGeometry( 0.02, 16, 8 );
+                    let bulbLight = new THREE.PointLight( 0xffee88, 1, 100, 2 );
+                    let bulbMat = new THREE.MeshStandardMaterial( {
+                        emissive: 0xffffee,
+                        emissiveIntensity: 1,
+                        color: 0x000000
+                    } );
+                    bulbLight.add( new THREE.Mesh( bulbGeometry, bulbMat ) );
+                    bulbLight.position.set( 0, 0, 0 );
+                    bulbLight.castShadow = true;
+                    defi.scene.add( bulbLight );
+
+                    var loader = new THREE.FontLoader();
+
+                    loader.load( 'fonts/helvetiker_regular.typeface.json', function ( font ) {
+
+                        var geometry = new THREE.TextGeometry( 'Hello three.js!', {
+                            font: font,
+                            size: 80,
+                            height: 5,
+                            curveSegments: 12,
+                            bevelEnabled: true,
+                            bevelThickness: 10,
+                            bevelSize: 8,
+                            bevelOffset: 0,
+                            bevelSegments: 5
+                        } );
+                    } );
+
+                    defi.customAnimate = seventhAnimate;
+                }
+
+            };
+
+            seventhAnimate = function (defi) {
+
+            };
+
+            let mainsequence = [
+                {
+                    action: 1,
+                    duration: 10,
+                    transition: 3,
+                    onActionBegin: firstAction,
+                    startSound: "sounds/shooting-stars.mp3"
+                },
+                {
+                    action: 2,
+                    duration: 5,
+                    transition: 3
+                },
+                {
+                    action: 3,
+                    duration: 5,
+                    transition: 3
+                },
+                {
+                    action: 4,
+                    duration: 10,
+                    transition: 3
+                },
+                {
+                    action: 5,
+                    duration: 20,
+                    transition: 4,
+                    //onActionEnd: reset
+                },
+                {
+                    action:6,
+                    duration:100,
+                    transition:1
+                },
+
+            ]
+
+            let dancesequence = [
+                {
+                    action: 1,
+                    duration: 10,
+                    transition: 3,
+                },
+                {
+                    action: 2,
+                    duration: 5,
+                    transition: 3
+                },
+                {
+                    action: 3,
+                    duration: 5,
+                    transition: 3
+                },
+                {
+                    action: 1,
+                    duration: 10,
+                    transition: 3
+                },
+                {
+                    action: 2,
+                    duration: 20,
+                    transition: 4
+                },
+            ];
+
+            let settings = {
+                autoPlay: false,
+                container: document.getElementById("defi-alten4"),
+                backgroundImage: 'img/space.jpg',
+                sequences: [
+                    {
+                        mesh: 'meshes/altenaute.glb',
+                        meshName: 'altenauteleft',
+                        scale: 5,
+                        position: {x: -20, y: 22, z: 0},
+                        rotation: {x: 0, y: -1.5, z: 0},
+                        sequence: dancesequence
+
+                    },
+                    {
+                        mesh: 'meshes/altenaute.glb',
+                        meshName: 'altenautemiddle',
+                        scale: 5,
+                        position: {x: 0, y: 27, z: 0},
+                        rotation: {x: 0, y: -1.5, z: 0},
+                        sequence: mainsequence
+
+                    },
+                    {
+                        mesh: 'meshes/altenaute.glb',
+                        meshName: 'altenauteright',
+                        scale: 5,
+                        position: {x: 20, y: 22, z: 0},
+                        rotation: {x: 0, y: -1.5, z: 0},
+                        sequence: dancesequence
+
+                    },
+                    {
+                        mesh: 'meshes/Oni_Chan_anim_fin.glb',
+                        meshName: 'chanleft',
+                        scale: 0.5,
+                        position: {x: -20, y: -60, z: 0},
+                        rotation: {x: 0, y: 0, z: 0},
+                        sequence: dancesequence
+
+                    },
+                    {
+                        mesh: 'meshes/Oni_Chan_anim_fin.glb',
+                        meshName: 'chanright',
+                        scale: 0.5,
+                        position: {x: 20, y: -60, z: 0},
+                        rotation: {x: 0, y: 0, z: 0},
+                        sequence: dancesequence
+
+                    },
+                    {
+                        mesh: 'meshes/the_earth2/scene.gltf',
+                        meshName: 'earth',
+                        scale: 10000,
+                        position: {x: 0, y: 20, z: -100000},
+                        rotation: {x: 0, y: 0, z: 0}
+                    },
+                    {
+                        mesh: 'meshes/the_moon/scene.gltf',
+                        meshName: 'moon',
+                        scale: 5000,
+                        position: {x: 0, y: 20, z: 50000},
+                        rotation: {x: 0, y: 0, z: 0}
+                    },
+                    {
+                        mesh: 'meshes/nyan_cat/scene.gltf',
+                        meshName: 'nyan',
+                        scale: 0.6,
+                        position: {x: -100, y: 22, z: 0},
+                        rotation: {x: 0, y: 0, z: 0}
+                    },
+
+                ]
+            };
+
+
+            defi4 = new DefiAlten(settings);
+
+            defi4.resize(800, 800);
+            document.getElementById('btn-defi-4').onclick = () => {
+                defi4.toggle();
+            };
+
+        });
+    </script>
+</head>
+<body>
+
+
+<div class="demo">
+    <h2>La danse</h2>
+    <p>
+        <button id="btn-defi-4">play/pause</button>
+    </p>
+    <div id="defi-alten4"></div>
+</div>
+
+
+</body>
+</html>

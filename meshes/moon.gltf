@@ -1,0 +1,562 @@
+{
+  "accessors": [
+    {
+      "bufferView": 2,
+      "componentType": 5126,
+      "count": 358,
+      "max": [
+        1.2591675519943237,
+        0.95769315958023071,
+        0.33038949966430664
+      ],
+      "min": [
+        0.64912277460098267,
+        0.49539154767990112,
+        0.21431601047515869
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 4296,
+      "componentType": 5126,
+      "count": 358,
+      "max": [
+        0.91009736061096191,
+        0.78025603294372559,
+        0.96144068241119385
+      ],
+      "min": [
+        -0.90925019979476929,
+        -0.81794178485870361,
+        -0.99938440322875977
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 3,
+      "componentType": 5126,
+      "count": 358,
+      "max": [
+        0.85974180698394775,
+        0.85772937536239624,
+        0.94546931982040405,
+        1
+      ],
+      "min": [
+        -0.92219245433807373,
+        -0.95507252216339111,
+        -0.99687588214874268,
+        -1
+      ],
+      "type": "VEC4"
+    },
+    {
+      "bufferView": 1,
+      "componentType": 5126,
+      "count": 358,
+      "max": [
+        0.95482265949249268,
+        0.68817985057830811
+      ],
+      "min": [
+        0.66194021701812744,
+        0.032068312168121338
+      ],
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 2864,
+      "componentType": 5126,
+      "count": 358,
+      "max": [
+        0.95482265949249268,
+        0.68817985057830811
+      ],
+      "min": [
+        0.66194021701812744,
+        0.032068312168121338
+      ],
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 0,
+      "componentType": 5125,
+      "count": 1788,
+      "max": [
+        357
+      ],
+      "min": [
+        0
+      ],
+      "type": "SCALAR"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 8592,
+      "componentType": 5126,
+      "count": 1894,
+      "max": [
+        0.98812609910964966,
+        1.0135481357574463,
+        1.2449784278869629
+      ],
+      "min": [
+        -1.0031058788299561,
+        -1.0402234792709351,
+        -0.99117350578308105
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 31320,
+      "componentType": 5126,
+      "count": 1894,
+      "max": [
+        0.9996071457862854,
+        0.99937379360198975,
+        0.99990081787109375
+      ],
+      "min": [
+        -0.99871492385864258,
+        -0.99931603670120239,
+        -0.99920773506164551
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 3,
+      "byteOffset": 5728,
+      "componentType": 5126,
+      "count": 1894,
+      "max": [
+        0.99999004602432251,
+        0.97846847772598267,
+        0.99987655878067017,
+        1
+      ],
+      "min": [
+        -0.94152981042861938,
+        -0.93084627389907837,
+        -0.99998378753662109,
+        1
+      ],
+      "type": "VEC4"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 5728,
+      "componentType": 5126,
+      "count": 1894,
+      "max": [
+        0.84852921962738037,
+        1
+      ],
+      "min": [
+        0.031026354059576988,
+        0
+      ],
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 20880,
+      "componentType": 5126,
+      "count": 1894,
+      "max": [
+        0.84852921962738037,
+        1
+      ],
+      "min": [
+        0.031026354059576988,
+        0
+      ],
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 0,
+      "byteOffset": 7152,
+      "componentType": 5125,
+      "count": 10614,
+      "max": [
+        1893
+      ],
+      "min": [
+        0
+      ],
+      "type": "SCALAR"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 54048,
+      "componentType": 5126,
+      "count": 520,
+      "max": [
+        0.6155693531036377,
+        0.38621535897254944,
+        0.93218898773193359
+      ],
+      "min": [
+        -0.61804038286209106,
+        -0.039253674447536469,
+        0.50816565752029419
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 60288,
+      "componentType": 5126,
+      "count": 520,
+      "max": [
+        0.99492067098617554,
+        0.99573969841003418,
+        0.99790084362030029
+      ],
+      "min": [
+        -0.99736124277114868,
+        -0.99995315074920654,
+        -0.99146550893783569
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 3,
+      "byteOffset": 36032,
+      "componentType": 5126,
+      "count": 520,
+      "max": [
+        0.99858909845352173,
+        0.92130249738693237,
+        0.99660980701446533,
+        1
+      ],
+      "min": [
+        -0.90581721067428589,
+        -0.98835474252700806,
+        -0.99601161479949951,
+        1
+      ],
+      "type": "VEC4"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 36032,
+      "componentType": 5126,
+      "count": 520,
+      "max": [
+        0.83815044164657593,
+        0.95506811141967773
+      ],
+      "min": [
+        0.090070456266403198,
+        0.65841889381408691
+      ],
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 40192,
+      "componentType": 5126,
+      "count": 520,
+      "max": [
+        0.83815044164657593,
+        0.95506811141967773
+      ],
+      "min": [
+        0.090070456266403198,
+        0.65841889381408691
+      ],
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 0,
+      "byteOffset": 49608,
+      "componentType": 5125,
+      "count": 2808,
+      "max": [
+        519
+      ],
+      "min": [
+        0
+      ],
+      "type": "SCALAR"
+    }
+  ],
+  "asset": {
+    "extras": {
+      "author": "Chris (https://sketchfab.com/happycrust)",
+      "license": "CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)",
+      "source": "https://sketchfab.com/models/8d10f06fb94049b8831dcb83b725a93f",
+      "title": "Me Gusta Moon"
+    },
+    "generator": "Sketchfab-3.49.1",
+    "version": "2.0"
+  },
+  "bufferViews": [
+    {
+      "buffer": 0,
+      "byteLength": 60840,
+      "byteOffset": 0,
+      "name": "floatBufferViews",
+      "target": 34963
+    },
+    {
+      "buffer": 0,
+      "byteLength": 44352,
+      "byteOffset": 60840,
+      "byteStride": 8,
+      "name": "floatBufferViews",
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteLength": 66528,
+      "byteOffset": 105192,
+      "byteStride": 12,
+      "name": "floatBufferViews",
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteLength": 44352,
+      "byteOffset": 171720,
+      "byteStride": 16,
+      "name": "floatBufferViews",
+      "target": 34962
+    }
+  ],
+  "buffers": [
+    {
+      "byteLength": 216072,
+      "uri": "moon.bin"
+    }
+  ],
+  "images": [
+    {
+      "uri": "textures/Moon2_MAT_normal.png"
+    },
+    {
+      "uri": "textures/Moon2_MAT_baseColor.png"
+    }
+  ],
+  "materials": [
+    {
+      "doubleSided": true,
+      "emissiveFactor": [
+        0,
+        0,
+        0
+      ],
+      "name": "Moon2_MAT",
+      "normalTexture": {
+        "index": 0,
+        "scale": 1,
+        "texCoord": 0
+      },
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.80000000000000004,
+          0.80000000000000004,
+          0.80000000000000004,
+          1
+        ],
+        "baseColorTexture": {
+          "index": 1,
+          "texCoord": 0
+        },
+        "metallicFactor": 0,
+        "roughnessFactor": 0.59999999999999998
+      }
+    }
+  ],
+  "meshes": [
+    {
+      "name": "Flag_Moon2_MAT_0",
+      "primitives": [
+        {
+          "attributes": {
+            "NORMAL": 1,
+            "POSITION": 0,
+            "TANGENT": 2,
+            "TEXCOORD_0": 3,
+            "TEXCOORD_1": 4
+          },
+          "indices": 5,
+          "material": 0,
+          "mode": 4
+        }
+      ]
+    },
+    {
+      "name": "Moon_LOW_Moon2_MAT_0",
+      "primitives": [
+        {
+          "attributes": {
+            "NORMAL": 7,
+            "POSITION": 6,
+            "TANGENT": 8,
+            "TEXCOORD_0": 9,
+            "TEXCOORD_1": 10
+          },
+          "indices": 11,
+          "material": 0,
+          "mode": 4
+        }
+      ]
+    },
+    {
+      "name": "Eyes_LOW_Moon2_MAT_0",
+      "primitives": [
+        {
+          "attributes": {
+            "NORMAL": 13,
+            "POSITION": 12,
+            "TANGENT": 14,
+            "TEXCOORD_0": 15,
+            "TEXCOORD_1": 16
+          },
+          "indices": 17,
+          "material": 0,
+          "mode": 4
+        }
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "children": [
+        1
+      ],
+      "name": "RootNode (gltf orientation matrix)",
+      "rotation": [
+        -0.70710678118654746,
+        -0,
+        -0,
+        0.70710678118654757
+      ]
+    },
+    {
+      "children": [
+        2
+      ],
+      "name": "RootNode (model correction matrix)"
+    },
+    {
+      "children": [
+        3
+      ],
+      "matrix": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        -1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      "name": "730f9c0633774fdaac9fce10e4dc3c99.fbx"
+    },
+    {
+      "children": [
+        4
+      ],
+      "name": "RootNode"
+    },
+    {
+      "children": [
+        5,
+        7,
+        9
+      ],
+      "name": "Moon_LOW"
+    },
+    {
+      "children": [
+        6
+      ],
+      "name": "Flag"
+    },
+    {
+      "mesh": 0,
+      "name": "Flag_Moon2_MAT_0"
+    },
+    {
+      "children": [
+        8
+      ],
+      "name": "Moon_LOW"
+    },
+    {
+      "mesh": 1,
+      "name": "Moon_LOW_Moon2_MAT_0"
+    },
+    {
+      "children": [
+        10
+      ],
+      "matrix": [
+        1.0250084400177002,
+        0,
+        0,
+        0,
+        0,
+        1.0250084400177002,
+        0,
+        0,
+        0,
+        0,
+        1.0250084400177002,
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      "name": "Eyes_LOW"
+    },
+    {
+      "mesh": 2,
+      "name": "Eyes_LOW_Moon2_MAT_0"
+    }
+  ],
+  "samplers": [
+    {
+      "magFilter": 9729,
+      "minFilter": 9987,
+      "wrapS": 10497,
+      "wrapT": 10497
+    }
+  ],
+  "scene": 0,
+  "scenes": [
+    {
+      "name": "OSG_Scene",
+      "nodes": [
+        0
+      ]
+    }
+  ],
+  "textures": [
+    {
+      "sampler": 0,
+      "source": 0
+    },
+    {
+      "sampler": 0,
+      "source": 1
+    }
+  ]
+}
+

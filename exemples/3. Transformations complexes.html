@@ -1,0 +1,68 @@
+<html>
+    <head>
+		<meta charset="UTF-8" />
+		<script src="http://defi.alten.nuitdelinfo.ovh/js/three.min.js"></script>
+		<script type="module" src="http://defi.alten.nuitdelinfo.ovh/js/defi.alten.js"></script>                    
+			<div class="demo">
+				<h2>Utiliser les &eacute;v&eacute;nements</h2>
+				<p><button id="btn-defi-4">play/pause</button></p>
+				<div id="defi-alten4"></div>  
+			</div>
+			<script>
+				window.addEventListener('DOMContentLoaded', (event) => {
+		
+					// Définissons dans un premier temps deux fonctions
+					// evtActionBegin et evtActionEnd que l'on souhaite
+					// exécuter  en début et fin d'une action.
+					// /!\ Attention ! Ne rien mettre de bloquant dans les actions (boucle infinie ou autre..)
+
+					evtActionBegin= function(defi) 
+					{
+						// do something //
+					};
+					
+					evtActionEnd= function(defi) 
+					{
+						// Dans cette fonction, nous allons tenter de faire 
+						// tourner le mesh sur lui même 
+						
+						// Récupération de type scene par son nom (NB : dans les settings, nous avons positionné l'attribut meshName à 'pouet')
+						let object =  defi.scene.getObjectByName('pouet'); 
+
+						// Application d'une rotation simple sur l'axe Y, de 0.1 radians
+						object.rotateY(0.1); 
+
+						//Pour appliquer des transformations plus complexes, RDV sur la doc de ThreeJS 
+						//https://threejs.org/docs/index.html#manual/en/introduction/Matrix-transformations
+						//https://threejs.org/docs/index.html#api/en/math/Quaternion.setFromRotationMatrix
+					};
+
+					let settings={
+						autoPlay        : false,
+						container       : document.getElementById("defi-alten"),
+						sequences       : [
+						{
+							mesh : 'http://defi.alten.nuitdelinfo.ovh/meshes/spacionaut_p.glb',
+							meshName : 'pouet',
+							scale    : 10,
+							position : {x:15,y:0,z:0},
+							sequence :
+							[
+								{action:0, duration:0.1,onActionBegin: evtActionBegin, onActionEnd:evtActionEnd,startSound:'http://defi.alten.nuitdelinfo.ovh/sounds/rednex.mp3'}
+							]
+						}
+					]
+					};
+		
+				   defi4  = new DefiAlten(settings);
+				   defi4.resize(400, 255);
+				   document.getElementById('btn-defi-4').onclick = ()=>{defi4.toggle();};
+		
+				});
+			</script>
+    </head>
+    <body>
+         <div id="defi-alten"><div>
+    </body>
+            
+</html>

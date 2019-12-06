@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <link rel="stylesheet" type="text/css" href="css/defi.alten.css">
+    </head>
+
+    <body>
+		<h1> Erreur rencontrée </h1>	
+		<h3>Erreurs Cross-Origin Request / requêtes multiorigines : Pour des raisons de sécurité, la plupart des navigateurs bloquent le chargement d'éléments provenant de sources multiples (par exemple: l'altenaute sur notre serveur et votre musique en local).</h3>
+        <ul>
+		<li> Solution 1: Téléchargez toutes vos ressources en local</li>
+		<li> Solution 2: Faites héberger votre site</li>
+		<li> Solution 3: Utilisez un serveur HTTP local (par exemple wamp sur windows)</li>
+		</ul>
+	
+        <h1>Instructions pour utiliser un serveur HTTP local avec PHP</h1>
+        <p>Il va falloir que vous lanciez votre propre serveur en localhost, pour cela rien de compliqué.</p>
+        <p>Nous allons utiliser </p>
+        <u>https://windows.php.net/downloads/releases/php-7.4.0-Win32-vc15-x64.zip</u>
+        <p>Une fois que l'on a notre module PHP, on peut lancer notre serveur de la facon suivante : </p>
+        <p>On ouvre une commande CMD dans le dossier dans lequel se trouve nos ressources (html, etc..), on lui donne le chemin où on a décompressé notre .rar pour accéder/lancer le php.exe.</p>
+        <p>On lui passe en argument -S localhost:1234  (on prendra le localhost et le port 1234 comme exemple par défaut).</p>
+		<code> > monCheminAbsoluVersPHP/php.exe -S localhost:1234 </code>
+        <p>Une fois notre serveur lancé, on peut accéder à nos scripts et aux ressources personnalisées qu'il vont vouloir charger.</p>
+
+        <p />
+        <p>Enjoy !</p>
+
+    </body>
+</html>
