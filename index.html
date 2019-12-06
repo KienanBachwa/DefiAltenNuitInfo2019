@@ -3,60 +3,23 @@
 <head>
     <meta charset="UTF-8"/>
     <link rel="stylesheet" type="text/css" href="css/defi.alten.css">
-    <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
-
-    <script src="http://defi.alten.nuitdelinfo.ovh/js/three.min.js"></script>
+    <script src="js/three.min.js"></script>
     <script type="module" src="js/defi.alten.js"></script>
 
     <script id="script4">
+        /*
+        Très mal organisé, mal codé, mais fonctionne!
+         */
         window.addEventListener('DOMContentLoaded', (event) => {
+            let bulbLight;
+
             let nyans = [];
 
-            // Définissons dans un premier temps deux fonctions
-            // evtActionBegin et evtActionEnd que l'on souhaite
-            // exécuter  en début et fin d'une action.
-            // /!\ Attention ! Ne rien mettre de bloquant dans les actions (boucle infinie ou autre..)
-
-            reset = function (defi) {
-                console.log("RESET");
-                let left = defi.scene.getObjectByName("altenauteleft");
+            stopAnim = function (defi) {
+                defi.stop();
+                defi.customAnimate = null;
                 let middle = defi.scene.getObjectByName("altenautemiddle");
-                let right = defi.scene.getObjectByName("altenauteright");
-
-                left.position = new THREE.Vector3(-20, 22, 0);
-                middle.position = new THREE.Vector3(0, 27, 0);
-                right.position = new THREE.Vector3(20, 22, 0);
-
-                let left2 = defi.scene.getObjectByName("chanleft");
-                let right2 = defi.scene.getObjectByName("chanright");
-
-                left2.position = new THREE.Vector3(-20, -60, 0);
-                right2.position = new THREE.Vector3(-20, -60, 0);
-
-                let earth = defi.scene.getObjectByName("earth");
-                let moon = defi.scene.getObjectByName("moon");
-
-                earth.position = {x: 0, y: 20, z: -100000};
-                moon.position = {x: 0, y: 20, z: 50000};
-
-                let nyan = defi.scene.getObjectByName("nyan");
-                nyan.position = {x: -100, y: 22, z: 0};
-                nyan.rotation = {x: 0, y: 0, z: 0};
-
-            };
-
-            evtActionBegin = function (defi) {
-                // do something //
-            };
-
-            evtActionEnd = function (defi) {
-                // Dans cette fonction, nous allons tenter de faire
-                // tourner le mesh sur lui même
-
-                // Récupération de type scene par son nom (NB : dans les settings, nous avons positionné l'attribut meshName à 'pouet')
-                //let object = defi.scene.getObjectByName('altenaute');
-
-                //object.rotateY(0.1);
+                defi.scene.remove(middle);
             };
 
             firstAction = function (defi) {
@@ -83,6 +46,12 @@
             };
 
             secondAnimate = function (defi) {
+                let earth = defi.scene.getObjectByName("earth");
+                earth.position.z -= 80;
+
+                let moon = defi.scene.getObjectByName("moon");
+                moon.position.z -= 80;
+
                 let left = defi.scene.getObjectByName("altenauteleft");
                 let right = defi.scene.getObjectByName("altenauteright");
 
@@ -101,6 +70,12 @@
             };
 
             thirdAnimate = function (defi) {
+                let earth = defi.scene.getObjectByName("earth");
+                earth.position.z -= 80;
+
+                let moon = defi.scene.getObjectByName("moon");
+                moon.position.z -= 80;
+
                 let nyan = defi.scene.getObjectByName("nyan");
                 nyan.position.x += 1;
 
@@ -110,13 +85,19 @@
             };
 
             fourthAnimate = function (defi) {
+                let earth = defi.scene.getObjectByName("earth");
+                earth.position.z -= 80;
+
+                let moon = defi.scene.getObjectByName("moon");
+                moon.position.z -= 80;
+
                 let nyan = defi.scene.getObjectByName("nyan");
                 nyan.rotation.z += 0.05;
 
                 if (nyan.rotation.z >= 1.6) {
                     let startx = -30;
                     let starty = -10;
-                    for (let j = 0; j < 5; j++) {
+                    for (let j = 0; j < 3; j++) {
                         for (let i = 0; i < 5; i++) {
                             let addednyan = nyan.clone();
                             addednyan.position.y = starty;
@@ -135,6 +116,12 @@
             };
 
             fifthAnimate = function (defi) {
+                let earth = defi.scene.getObjectByName("earth");
+                earth.position.z -= 80;
+
+                let moon = defi.scene.getObjectByName("moon");
+                moon.position.z -= 80;
+
                 let nyan = defi.scene.getObjectByName("nyan");
 
                 nyan.position.y += 0.5;
@@ -142,7 +129,7 @@
                     nyans[anyan].position.y += 0.5;
                 }
 
-                if (nyan.position.y >= 100) {
+                if (nyan.position.y >= 80) {
                     defi.customAnimate = sixthAnimate;
 
                 }
@@ -171,41 +158,44 @@
                         defi.scene.remove(nyans[anyan]);
                         defi.scene.remove(nyan);
                     }
-                    var bulbGeometry = new THREE.SphereBufferGeometry( 0.02, 16, 8 );
-                    let bulbLight = new THREE.PointLight( 0xffee88, 1, 100, 2 );
-                    let bulbMat = new THREE.MeshStandardMaterial( {
+                    var bulbGeometry = new THREE.SphereBufferGeometry(0.02, 16, 8);
+                    bulbLight = new THREE.PointLight(0xffee88, 1, 100, 2);
+                    let bulbMat = new THREE.MeshStandardMaterial({
                         emissive: 0xffffee,
                         emissiveIntensity: 1,
                         color: 0x000000
-                    } );
-                    bulbLight.add( new THREE.Mesh( bulbGeometry, bulbMat ) );
-                    bulbLight.position.set( 0, 0, 0 );
+                    });
+                    bulbLight.add(new THREE.Mesh(bulbGeometry, bulbMat));
+                    bulbLight.position.set(0, 1, 0);
                     bulbLight.castShadow = true;
-                    defi.scene.add( bulbLight );
-
-                    var loader = new THREE.FontLoader();
-
-                    loader.load( 'fonts/helvetiker_regular.typeface.json', function ( font ) {
-
-                        var geometry = new THREE.TextGeometry( 'Hello three.js!', {
-                            font: font,
-                            size: 80,
-                            height: 5,
-                            curveSegments: 12,
-                            bevelEnabled: true,
-                            bevelThickness: 10,
-                            bevelSize: 8,
-                            bevelOffset: 0,
-                            bevelSegments: 5
-                        } );
-                    } );
+                    defi.scene.add(bulbLight);
 
                     defi.customAnimate = seventhAnimate;
                 }
 
             };
 
+            let growing = true;
             seventhAnimate = function (defi) {
+                bulbLight.intensity += 10;
+                let middle = defi.scene.getObjectByName("altenautemiddle");
+                middle.rotation.y += 0.05;
+                if (growing) {
+                    middle.scale.x += 0.01;
+                    middle.scale.y += 0.01;
+                    middle.scale.z += 0.01;
+                } else {
+                    middle.scale.x -= 0.01;
+                    middle.scale.y -= 0.01;
+                    middle.scale.z -= 0.01;
+                }
+
+                if(middle.scale.x > 8){
+                    growing = false;
+                }
+                if(middle.scale.x < 5){
+                    growing = true;
+                }
 
             };
 
@@ -234,14 +224,54 @@
                 },
                 {
                     action: 5,
-                    duration: 20,
+                    duration: 10,
                     transition: 4,
-                    //onActionEnd: reset
                 },
                 {
-                    action:6,
-                    duration:100,
-                    transition:1
+                    action: 6,
+                    duration: 5,
+                    transition: 1
+                },
+                {
+                    action: 7,
+                    duration: 5,
+                    transition: 1
+                },
+                {
+                    action: 8,
+                    duration: 5,
+                    transition: 1
+                },
+                {
+                    action: 9,
+                    duration: 5,
+                    transition: 1
+                },
+                {
+                    action: 11,
+                    duration: 5,
+                    transition: 1
+                },
+                {
+                    action: 12,
+                    duration: 5,
+                    transition: 1
+                },
+                {
+                    action: 13,
+                    duration: 5,
+                    transition: 1
+                },
+                {
+                    action: 14,
+                    duration: 5,
+                    transition: 1
+                },
+                {
+                    action: 10,
+                    duration: 5000,
+                    transition: 1,
+                    onActionEnd: stopAnim
                 },
 
             ]
@@ -351,8 +381,13 @@
 
 
             defi4 = new DefiAlten(settings);
+            defi4.resize(1000, 700);
 
-            defi4.resize(800, 800);
+            defi4.onFullLoaded = function () {
+                document.getElementById("loading").style.display = "none";
+                document.getElementById("btn-defi-4").style.display = "block";
+            };
+
             document.getElementById('btn-defi-4').onclick = () => {
                 defi4.toggle();
             };
@@ -364,9 +399,11 @@
 
 
 <div class="demo">
-    <h2>La danse</h2>
+    <h2>La danse de la victoire</h2>
+    <h4>Activez le son!</h4>
     <p>
-        <button id="btn-defi-4">play/pause</button>
+        <button id="btn-defi-4" style="display:none">play</button>
+        <span id="loading">Animation is loading</span>
     </p>
     <div id="defi-alten4"></div>
 </div>

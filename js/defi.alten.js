@@ -53,6 +53,7 @@ class DefiAlten {
 
     constructor(settings) {
         var _this = this;
+        this.loaded = 0;
 
         this.sequencesIndex = [];
         this.container = settings.container;
@@ -244,6 +245,10 @@ class DefiAlten {
                 if (_this.running)
                     _this.doTransitions(index);
 
+                _this.loaded += 1;
+                if(_this.loaded === 9 && _this.onFullLoaded){
+                    _this.onFullLoaded();
+                }
             }, undefined, console.error);
         }
 
@@ -294,6 +299,10 @@ class DefiAlten {
                             _this.sounds.get(audioItem).setBuffer(buffer);
                             _this.sounds.get(audioItem).setLoop(false);
                             _this.sounds.get(audioItem).setVolume(0.5);
+                            _this.loaded += 1;
+                            if(_this.loaded === 9 && _this.onFullLoaded){
+                                _this.onFullLoaded();
+                            }
                         });
                     }
                 });
